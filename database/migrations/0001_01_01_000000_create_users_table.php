@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            
+            // --- TwoGo Extra Fields ---
+            $table->string('roll_number')->unique();
+            $table->enum('role', ['passenger', 'rider', 'admin'])->default('passenger');
+            $table->string('id_image_path')->nullable();
+            // --------------------------
+
             $table->rememberToken();
             $table->timestamps();
         });
